@@ -7,3 +7,6 @@ with open('test.html','r') as html_file:
     for link in soup.find_all('a'):
 
         print(link.get('href'))
+        print(link)
+        print(link)
+
