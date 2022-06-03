@@ -17,7 +17,7 @@ movie_urls=[]
 for a in soup.find_all('a', href=True):
     if '/us/movie/' in a['href']:
         movie_urls.append(a['href'])
-        print("URL:", a['href'])
+        #print("URL:", a['href'])
 
 movie_url_short=random.choice(movie_urls)
 movie_url_long='https://www.justwatch.com'+ movie_url_short
@@ -33,9 +33,14 @@ class info:
 movie_info=info('','','')
 
 name = soup_2.find('h1').text
-movie_info.name=name
+date= soup_2.find('span', class_="text-muted").text
+imdb_rating=soup_2.find('div',class_='title-info')
+#imdb_rating=imdb_rating[-1]
+movie_info.name, movie_info.date, movie_info_imdb_rating=name,date, imdb_rating
 
 print(movie_info.name)
+print(movie_info.date)
+#print(movie_info_imdb_rating.prettify())
 
 
 
